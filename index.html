@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PARAM SOLANKI | Web Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+      <span class="burger"></span>
+    </button>
+
+    <div class="brand">PARAM SOLANKI</div>
+
+    <a class="btn btn-yellow btn-nav" href="#contact">Let's Connect</a>
+  </header>
+
+  <!-- SIDE DRAWER -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__inner">
+      <div class="drawer__top">
+        <div class="drawer__title">Menu</div>
+        <button class="icon-btn" id="closeBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="drawer__links">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="drawer__hint">
+        Tip: Update your links in the <code>#links</code> section.
+      </div>
+    </div>
+  </aside>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <!-- FLOATING: MOON + LET'S TALK -->
+  <div class="moon" aria-hidden="true"></div>
+
+  <a class="talk" href="#contact" aria-label="Let's talk">
+    <span class="talk__text">Let's talk</span>
+    <span class="talk__avatar" aria-hidden="true">
+      <span class="talk__face">🙂</span>
+    </span>
+  </a>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero__wrap">
+        <div class="kicker">HELLO, I'M PARAM SOLANKI</div>
+
+        <h1 class="hero__title">
+          I build clean, modern websites<br />
+          that look premium and work fast.
+        </h1>
+
+        <p class="hero__sub">
+          I'm a Computer Engineering graduate (2025) focused on creating responsive websites using
+          WordPress + Elementor and also building sites from scratch with HTML, CSS, and JavaScript.
+        </p>
+
+        <p class="hero__quote">
+          I may be early in my career — but I take work seriously and deliver with full focus.
+        </p>
+
+        <div class="hero__actions" id="links">
+          <a class="btn btn-yellow" href="http://paramsolanki.page.gd/" target="_blank" rel="noreferrer">My Portfolio ↗</a>
+          <a class="btn btn-dark" href="#projects">Explore My Work →</a>
+          <a class="btn btn-outline" href="#contact">Hire Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__spacer"></div>
+
+        <div class="projects-grid">
+          <!-- PROJECT 1 -->
+          <article class="project">
+            <div class="project__shot">
+              <div class="shot__fake">
+                <div class="shot__bar">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="shot__content">
+                  <div class="shot__pill">Modern homepage layout</div>
+                  <div class="shot__pill">Clean CTA buttons</div>
+                  <div class="shot__cards">
+                    <div class="shot__card"></div>
+                    <div class="shot__card"></div>
+                    <div class="shot__card"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="project__title">Portfolio Website (My First Brand Site)</h3>
+            <div class="project__label">Tech Stack Used:</div>
+            <div class="tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">Elementor</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">UI Polish</span>
+            </div>
+
+            <p class="project__desc">
+              Built a clean personal portfolio to show my work and skills. Designed sections like
+              hero, projects, contact, and call-to-actions for hiring.
+            </p>
+
+            <div class="project__actions">
+              <a class="btn btn-yellow" href="http://paramsolanki.page.gd/" target="_blank" rel="noreferrer">Live Preview</a>
+              <a class="btn btn-dark" href="#contact">Request Source</a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project">
+            <div class="project__shot">
+              <div class="shot__fake shot__fake--light">
+                <div class="shot__split">
+                  <div class="shot__copy">
+                    <div class="shot__headline">Bloodbank Management</div>
+                    <div class="shot__mini">
+                      A responsive system concept for donor registration, stock tracking, and requests.
+                      Includes admin dashboard and alerts.
+                    </div>
+                    <div class="shot__cta">Build from scratch →</div>
+                  </div>
+                  <div class="shot__art"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="project__title">Bloodbank Management System (Concept Project)</h3>
+            <div class="project__label">Tech Stack Used:</div>
+            <div class="tags">
+              <span class="tag">Python (planned)</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JS</span>
+              <span class="tag">Database</span>
+              <span class="tag">Admin Panel</span>
+            </div>
+
+            <p class="project__desc">
+              A full-stack web app concept I’m building: donors, recipients, hospitals, authentication,
+              admin controls, reports, and notifications.
+            </p>
+
+            <div class="project__actions">
+              <a class="btn btn-yellow" href="#contact">See Progress</a>
+              <a class="btn btn-dark" href="#contact">Collaborate</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="center">
+          <a class="btn btn-yellow btn-wide" href="#contact">Need a Website? Let’s Talk →</a>
+        </div>
+
+        <h2 class="big-heading">Kind words from my clients</h2>
+
+        <div class="testi">
+          <div class="testi__card">
+            <div class="testi__quote">“Very fast and cooperative. Delivered exactly what I needed.”</div>
+            <div class="testi__by">— Client feedback (sample)</div>
+          </div>
+          <div class="testi__card">
+            <div class="testi__quote">“Clean design, responsive layout, and great communication.”</div>
+            <div class="testi__by">— Client feedback (sample)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / TECH -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="services__title">EXPLORE MY SERVICES</div>
+
+        <div class="cards">
+          <div class="svc">
+            <div class="svc__top">
+              <div class="svc__title">WordPress + Elementor Website</div>
+              <div class="svc__badge">Most Popular</div>
+            </div>
+            <div class="svc__desc">
+              Business websites, portfolios, landing pages — modern design, mobile-friendly, fast loading.
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="svc__top">
+              <div class="svc__title">Website Redesign / Fixes</div>
+              <div class="svc__badge">Quick</div>
+            </div>
+            <div class="svc__desc">
+              Improve your existing website: layout, speed, responsiveness, and clean UI fixes.
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="svc__top">
+              <div class="svc__title">Build From Scratch</div>
+              <div class="svc__badge">Custom</div>
+            </div>
+            <div class="svc__desc">
+              HTML/CSS/JS websites with modern UI — perfect if you want full control and custom animations.
+            </div>
+          </div>
+        </div>
+
+        <div class="workwith">
+          <div class="workwith__label">I WORK WITH:</div>
+          <div class="icons">
+            <div class="ic ic-js" title="JavaScript">JS</div>
+            <div class="ic ic-wp" title="WordPress">WP</div>
+            <div class="ic ic-el" title="Elementor">E</div>
+            <div class="ic ic-html" title="HTML">H</div>
+            <div class="ic ic-css" title="CSS">C</div>
+            <div class="ic ic-git" title="Git">G</div>
+            <div class="ic ic-py" title="Python (learning)">PY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="section" id="faqs">
+      <div class="container faq">
+        <div class="faq__left">
+          <div class="pill">FAQS</div>
+          <h2 class="faq__title">Answers to questions<br/>people ask me most.</h2>
+          <p class="faq__sub">
+            I keep things simple: clear communication, clean work, and on-time delivery.
+          </p>
+
+          <div class="faq__note">
+            Want a quick quote? Message me and I’ll reply fast.
+          </div>
+        </div>
+
+        <div class="faq__right">
+          <details class="acc" open>
+            <summary>What kind of websites do you build?</summary>
+            <div class="acc__body">
+              Portfolios, business websites, landing pages, and clean modern UI websites using WordPress/Elementor
+              or from scratch with HTML/CSS/JS.
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary>How fast can you deliver?</summary>
+            <div class="acc__body">
+              Small sites can be done quickly depending on pages and content. I share progress regularly so you know what’s happening.
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary>Do you support after delivery?</summary>
+            <div class="acc__body">
+              Yes — I can help with updates, fixes, and small improvements after the website is live.
+            </div>
+          </details>
+
+          <details class="acc">
+            <summary>Are you open to a job / internship?</summary>
+            <div class="acc__body">
+              Yes. I’m actively looking for opportunities in IT/office roles and web development roles.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div class="pill">CONTACT</div>
+        <h2 class="contact__title">Let’s build something<br/>clean and professional.</h2>
+        <p class="contact__sub">
+          Tell me what you need — a website, redesign, or a role you’re hiring for. I’ll respond fast.
+        </p>
+
+        <div class="contact__actions">
+          <a class="btn btn-yellow" href="mailto:solanki2.2000@gmail.com">Email Me</a>
+          <a class="btn btn-dark" href="tel:+918156077613">Call: 8156077613</a>
+          <a class="btn btn-outline" href="http://paramsolanki.page.gd/" target="_blank" rel="noreferrer">Portfolio ↗</a>
+        </div>
+
+        <div class="footer">
+          <div>© <span id="year"></span> Param Solanki</div>
+          <div class="footer__muted">Built with HTML, CSS & JavaScript</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
