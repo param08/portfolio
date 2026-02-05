@@ -14,7 +14,13 @@
 </head>
 
 <body>
-  <!-- Galaxy background (multiple star layers + drifting blobs/moons) -->
+  <!-- VIDEO BACKGROUND (upload to GitHub: assets/bg.mp4) -->
+  <video class="bgVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="assets/bg.mp4" type="video/mp4" />
+  </video>
+  <div class="bgVideo__shade" aria-hidden="true"></div>
+
+  <!-- Galaxy overlay (multiple star layers + drifting blobs/moons) -->
   <div class="bg" aria-hidden="true">
     <div class="bg__drift">
       <div class="stars stars--far"></div>
@@ -30,7 +36,7 @@
     </div>
   </div>
 
-  <!-- Mouse nebula effect (like your video) -->
+  <!-- Mouse nebula (SUBTLE now) -->
   <canvas id="nebula" aria-hidden="true"></canvas>
 
   <!-- Shooting stars -->
@@ -118,7 +124,7 @@
       <div class="container about__grid">
         <div class="about__imageWrap">
           <div class="about__imageRing">
-            <img class="about__image" src="assets/me.png" alt="Param Solanki portrait" />
+            <img class="about__image" src="assets/me.jpg" alt="Param Solanki portrait" />
           </div>
         </div>
 
@@ -199,7 +205,7 @@
               </div>
             </div>
             <p class="card__text">
-              Galaxy background motion + nebula mouse effect + tilt cards + scroll reveals.
+              Video background + galaxy motion + subtle mouse nebula + tilt cards + scroll reveals.
             </p>
             <div class="card__actions">
               <a class="btn btn--solid btn--small" href="#home">View</a>
