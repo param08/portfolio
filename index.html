@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Param Solanki — Portfolio</title>
+  <meta name="description" content="Param Solanki — Web Developer (WordPress + Frontend). Clean, modern websites & web apps." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Galaxy background (multiple star layers + drifting blobs/moons) -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__drift">
+      <div class="stars stars--far"></div>
+      <div class="stars stars--mid"></div>
+      <div class="stars stars--near"></div>
+
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+
+      <div class="moon moon--1"></div>
+      <div class="moon moon--2"></div>
+    </div>
+  </div>
+
+  <!-- Mouse nebula effect (like your video) -->
+  <canvas id="nebula" aria-hidden="true"></canvas>
+
+  <!-- Shooting stars -->
+  <canvas id="shootingStars" aria-hidden="true"></canvas>
+
+  <!-- Cinematic grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Mobile menu overlay -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Side drawer -->
+  <aside class="drawer" id="drawer" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="drawer__top">
+      <div class="drawer__title">Menu</div>
+      <button class="iconBtn" id="closeDrawer" aria-label="Close menu">✕</button>
+    </div>
+
+    <nav class="drawer__nav">
+      <a href="#home" class="navlink">Home</a>
+      <a href="#about" class="navlink">About</a>
+      <a href="#projects" class="navlink">Projects</a>
+      <a href="#services" class="navlink">Services</a>
+      <a href="#faq" class="navlink">FAQ</a>
+      <a href="#contact" class="navlink">Contact</a>
+    </nav>
+
+    <div class="drawer__cta">
+      <a class="btn btn--solid" href="#contact">Let’s Connect</a>
+      <a class="btn btn--ghost" href="#projects">Explore My Work</a>
+    </div>
+  </aside>
+
+  <!-- Top header -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <button class="iconBtn iconBtn--menu" id="openDrawer" aria-label="Open menu">
+        <span class="menuIcon" aria-hidden="true"></span>
+      </button>
+
+      <div class="brand">
+        <span class="brand__name">PARAM SOLANKI</span>
+      </div>
+
+      <a class="btn btn--solid btn--small" href="#contact">Let’s Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="kicker">HELLO, I’M PARAM SOLANKI</div>
+
+          <h1 class="hero__title">
+            Building clean, responsive websites & web apps
+            <span class="muted">that feel effortless to use.</span>
+          </h1>
+
+          <p class="hero__desc">
+            I help individuals and small businesses turn ideas into fast, modern, mobile-friendly websites.
+            Focused on clean UI, performance, and smooth user experience.
+          </p>
+
+          <p class="hero__note">
+            Every great website starts with a clear message and a polished user journey.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--solid" href="#contact">All Links</a>
+            <a class="btn btn--outline" href="#projects">Explore My Work</a>
+            <a class="btn btn--outline" href="assets/Param-Solanki-CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+
+        <div class="hero__right">
+          <div class="orb" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__imageWrap">
+          <div class="about__imageRing">
+            <img class="about__image" src="assets/me.jpg" alt="Param Solanki portrait" />
+          </div>
+        </div>
+
+        <div class="about__content">
+          <div class="sectionTitle">
+            <div class="sectionTitle__kicker">WHO AM I?</div>
+            <h2 class="sectionTitle__title">A developer who cares about details.</h2>
+          </div>
+
+          <p class="about__text">
+            I’m Param Solanki — a Computer Engineering graduate (2025) and a web developer.
+            I build modern, responsive websites using <b>WordPress</b> and frontend tools.
+          </p>
+
+          <p class="about__text">
+            If you need a landing page, a business website, or a custom UI, I can build it with a
+            professional look and smooth experience.
+          </p>
+
+          <div class="stats">
+            <div class="statCard">
+              <div class="statCard__num">100%</div>
+              <div class="statCard__label">On-time delivery focus</div>
+            </div>
+            <div class="statCard">
+              <div class="statCard__num">95%</div>
+              <div class="statCard__label">Client satisfaction mindset</div>
+            </div>
+          </div>
+
+          <div class="about__actions">
+            <a class="btn btn--solid" href="#contact">About Me</a>
+            <a class="btn btn--ghost" href="#projects">See Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="sectionTitle sectionTitle--center">
+          <div class="sectionTitle__kicker">WORK</div>
+          <h2 class="sectionTitle__title">Projects I’ve built</h2>
+          <p class="sectionTitle__sub">
+            A few highlights. Want more? I can share additional work samples on request.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__top">
+              <h3 class="card__title">Bloodbank Management System</h3>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Database</span>
+                <span class="tag">Admin Panel</span>
+                <span class="tag">Responsive UI</span>
+              </div>
+            </div>
+            <p class="card__text">
+              Donor/recipient/admin flows: registration, search, blood stock tracking, and dashboard management.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--solid btn--small" href="#contact">Request Demo</a>
+              <a class="btn btn--outline btn--small" href="#contact">Let’s Build</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__top">
+              <h3 class="card__title">Premium Portfolio UI</h3>
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Animations</span>
+              </div>
+            </div>
+            <p class="card__text">
+              Galaxy background motion + nebula mouse effect + tilt cards + scroll reveals.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--solid btn--small" href="#home">View</a>
+              <a class="btn btn--outline btn--small" href="#contact">Hire Me</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="centerRow">
+          <a class="btn btn--solid" href="#contact">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="sectionTitle sectionTitle--center">
+          <div class="sectionTitle__kicker">SERVICES</div>
+          <h2 class="sectionTitle__title">What I can do for you</h2>
+        </div>
+
+        <div class="serviceGrid">
+          <div class="service">
+            <div class="service__title">WordPress Website</div>
+            <div class="service__text">Business websites, portfolios, landing pages with mobile-first design.</div>
+          </div>
+          <div class="service">
+            <div class="service__title">UI to Code</div>
+            <div class="service__text">Convert designs into clean HTML/CSS/JS with smooth interactions.</div>
+          </div>
+          <div class="service">
+            <div class="service__title">Speed & Performance</div>
+            <div class="service__text">Improve load times and UX (Core Web Vitals mindset).</div>
+          </div>
+          <div class="service">
+            <div class="service__title">Maintenance</div>
+            <div class="service__text">Updates, fixes, backups, and small changes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="sectionTitle sectionTitle--center">
+          <div class="sectionTitle__kicker">FAQS</div>
+          <h2 class="sectionTitle__title">Answers clients ask the most</h2>
+        </div>
+
+        <div class="faqBox">
+          <details class="faqItem" open>
+            <summary>What projects do you take on?</summary>
+            <p>Business websites, portfolios, landing pages, redesigns, and performance improvements.</p>
+          </details>
+          <details class="faqItem">
+            <summary>Do you work with WordPress?</summary>
+            <p>Yes — WordPress + Elementor is one of my strengths.</p>
+          </details>
+          <details class="faqItem">
+            <summary>How fast can we start?</summary>
+            <p>Same day if you share your content, reference site, and goals.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact__grid">
+        <div>
+          <div class="sectionTitle">
+            <div class="sectionTitle__kicker">Have a Project in Mind?</div>
+            <h2 class="sectionTitle__title">Let’s Build Something <span class="accent">Amazing…</span></h2>
+          </div>
+
+          <p class="contact__text">
+            From idea to launch, I can help you create a clean website that looks professional and works great on mobile.
+          </p>
+
+          <div class="contact__mini">
+            <div class="contactChip"><span>📞</span> 8156077613</div>
+            <div class="contactChip"><span>✉️</span> solanki2.2000@gmail.com</div>
+          </div>
+        </div>
+
+        <form class="contactForm" id="contactForm">
+          <label>
+            <span>Your Name</span>
+            <input type="text" name="name" placeholder="Enter your name" required />
+          </label>
+
+          <label>
+            <span>Your Email</span>
+            <input type="email" name="email" placeholder="Enter your email" required />
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </label>
+
+          <button class="btn btn--solid" type="submit">Start a Conversation</button>
+
+          <p class="formNote">Demo form only. I can connect this to WhatsApp/Email later.</p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <div class="footer__brand">Built with ❤️ by Param Solanki</div>
+          <div class="footer__mini">© <span id="year"></span> All rights reserved.</div>
+        </div>
+
+        <nav class="footer__nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating widget -->
+  <button class="chatFab" id="chatFab" aria-label="Open quick contact">
+    <span class="chatFab__dot" aria-hidden="true"></span>
+    Let’s talk
+  </button>
+
+  <div class="chatCard" id="chatCard" hidden>
+    <div class="chatCard__top">
+      <div>
+        <div class="chatCard__title">Quick contact</div>
+        <div class="chatCard__sub">Pick one option</div>
+      </div>
+      <button class="iconBtn" id="chatClose" aria-label="Close quick contact">✕</button>
+    </div>
+
+    <div class="chatCard__body">
+      <a class="miniBtn" href="tel:8156077613">📞 Call</a>
+      <a class="miniBtn" href="mailto:solanki2.2000@gmail.com">✉️ Email</a>
+      <a class="miniBtn" href="#contact">📝 Form</a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
