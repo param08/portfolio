@@ -111,8 +111,7 @@ document.querySelectorAll(".card").forEach(card => {
 });
 
 // ===============================
-// Nebula mouse effect (canvas)
-// like your screen recording
+// Nebula mouse effect (SUBTLE)
 // ===============================
 (() => {
   const canvas = document.getElementById("nebula");
@@ -135,33 +134,30 @@ document.querySelectorAll(".card").forEach(card => {
   window.addEventListener("resize", resize);
   resize();
 
-  const mouse = { x: w * 0.5, y: h * 0.5, active: false };
-
+  const mouse = { x: w * 0.5, y: h * 0.5 };
   window.addEventListener("mousemove", (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
-    mouse.active = true;
-  });
-  window.addEventListener("mouseleave", () => {
-    mouse.active = false;
   });
 
-  const COUNT = 18;
+  // Less particles + smaller radius = less aggressive
+  const COUNT = 10;
   const particles = Array.from({ length: COUNT }, (_, i) => ({
     x: mouse.x,
     y: mouse.y,
     vx: 0,
     vy: 0,
-    r: 78 - i * 2.6,
-    hueOffset: i * 11
+    r: 46 - i * 2.2,
+    hueOffset: i * 12
   }));
 
   function drawBlob(x, y, r, hue, alpha) {
     const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-    g.addColorStop(0, `hsla(${hue}, 95%, 65%, ${alpha})`);
-    g.addColorStop(0.55, `hsla(${hue + 30}, 95%, 60%, ${alpha * 0.55})`);
-    g.addColorStop(1, `hsla(${hue + 60}, 95%, 55%, 0)`);
+    g.addColorStop(0, `hsla(${hue}, 90%, 62%, ${alpha})`);
+    g.addColorStop(0.55, `hsla(${hue + 28}, 90%, 58%, ${alpha * 0.45})`);
+    g.addColorStop(1, `hsla(${hue + 55}, 90%, 52%, 0)`);
     ctx.fillStyle = g;
+
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fill();
@@ -170,11 +166,11 @@ document.querySelectorAll(".card").forEach(card => {
   let t = 0;
 
   function animate() {
-    t += 0.012;
+    t += 0.010;
 
-    // long trail
+    // faster fade => shorter trail (less aggressive)
     ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "rgba(5,6,18,0.08)";
+    ctx.fillStyle = "rgba(5,6,18,0.18)";
     ctx.fillRect(0, 0, w, h);
 
     ctx.globalCompositeOperation = "lighter";
@@ -183,8 +179,8 @@ document.querySelectorAll(".card").forEach(card => {
       const p = particles[i];
       const target = (i === 0) ? mouse : particles[i - 1];
 
-      const spring = 0.20 - i * 0.006;
-      const friction = 0.78 + i * 0.01;
+      const spring = 0.14 - i * 0.004;
+      const friction = 0.82 + i * 0.01;
 
       const dx = target.x - p.x;
       const dy = target.y - p.y;
@@ -198,8 +194,11 @@ document.querySelectorAll(".card").forEach(card => {
       p.x += p.vx;
       p.y += p.vy;
 
-      const hue = (t * 210 + p.hueOffset) % 360;
-      const alpha = 0.22 * (1 - i / particles.length);
+      // slower hue shift
+      const hue = (t * 140 + p.hueOffset) % 360;
+
+      // lower intensity
+      const alpha = 0.10 * (1 - i / particles.length);
 
       drawBlob(p.x, p.y, p.r, hue, alpha);
     }
@@ -236,17 +235,20 @@ document.querySelectorAll(".card").forEach(card => {
   resize();
 
   const stars = [];
-
   function rand(min, max){ return Math.random() * (max - min) + min; }
 
+  function scheduleNext(){
+    const next = rand(10, 20) * 1000;
+    setTimeout(spawnStar, next);
+  }
+
   function spawnStar(){
-    // start somewhere top-left-ish, move down-right
     const startX = rand(-w * 0.2, w * 0.8);
     const startY = rand(-h * 0.2, h * 0.4);
 
-    const angle = rand(0.72, 0.95); // radians (down-right)
-    const speed = rand(900, 1300);  // px/sec
-    const life = rand(0.8, 1.2);    // seconds
+    const angle = rand(0.72, 0.95);
+    const speed = rand(900, 1300);
+    const life = rand(0.8, 1.2);
 
     stars.push({
       x: startX,
@@ -259,11 +261,6 @@ document.querySelectorAll(".card").forEach(card => {
     });
 
     scheduleNext();
-  }
-
-  function scheduleNext(){
-    const next = rand(10, 20) * 1000;
-    setTimeout(spawnStar, next);
   }
   scheduleNext();
 
@@ -283,9 +280,9 @@ document.querySelectorAll(".card").forEach(card => {
       const p = Math.min(1, s.t / s.life);
       const alpha = (1 - p) * 0.9;
 
-      // tail
-      const tx = s.x - (s.vx / Math.hypot(s.vx, s.vy)) * s.len;
-      const ty = s.y - (s.vy / Math.hypot(s.vx, s.vy)) * s.len;
+      const mag = Math.hypot(s.vx, s.vy);
+      const tx = s.x - (s.vx / mag) * s.len;
+      const ty = s.y - (s.vy / mag) * s.len;
 
       const g = ctx.createLinearGradient(s.x, s.y, tx, ty);
       g.addColorStop(0, `rgba(255,255,255,${alpha})`);
@@ -299,7 +296,6 @@ document.querySelectorAll(".card").forEach(card => {
       ctx.lineTo(tx, ty);
       ctx.stroke();
 
-      // head glow
       ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.beginPath();
       ctx.arc(s.x, s.y, 2.6, 0, Math.PI * 2);
